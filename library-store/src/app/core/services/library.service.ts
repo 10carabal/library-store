@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { catchError, Observable, retry, timeout } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Book } from '../models/book.model';
 import { Genre } from '../models/genre.model';
@@ -21,27 +22,75 @@ export class LibraryService {
 
 
   constructor() { }
-  getAllBooks(): Book[] {
-    return [];
+  getAllBooks(): Observable<Book[]> {
+    return this.httpClient.get<Book[]>(`${this.URL_API}/books`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching books:', error);
+        throw error;
+      })
+    );
   }
 
-  getBookById(id: number): Book | undefined {
-    return undefined;
+  getBookById(id: number): Observable<Book | undefined> {
+    return this.httpClient.get<Book | undefined>(`${this.URL_API}/books/${id}`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching books:', error);
+        throw error;
+      })
+    );
   }
 
-  getAllGenres(): Genre[] {
-    return [];
+  getAllGenres(): Observable<Genre[]> {
+    return this.httpClient.get<Genre[]>(`${this.URL_API}/genres`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching genres:', error);
+        throw error;
+      })
+    );
   }
 
-  getGenreById(id: number): Genre | undefined {
-    return undefined;
+  getGenreById(id: number): Observable<Genre | undefined> {
+    return this.httpClient.get<Genre | undefined>(`${this.URL_API}/genres/${id}`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching genres:', error);
+        throw error;
+      })
+    );
   }
 
-  getAllPublishers(): Publisher[] {
-    return [];
+  getAllPublishers(): Observable<Publisher[]> {
+    return this.httpClient.get<Publisher[]>(`${this.URL_API}/publishers`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching publishers:', error);
+        throw error;
+      })
+    );
   }
 
-  getPublisherById(id: number): Publisher | undefined {
-    return undefined;
+  getPublisherById(id: number): Observable<Publisher | undefined> {
+    return this.httpClient.get<Publisher | undefined>(`${this.URL_API}/publishers/${id}`)
+    .pipe(
+      timeout(5000),
+      retry(2),
+      catchError((error) => {
+        console.error('Error fetching publishers:', error);
+        throw error;
+      })
+    );
   }
 }
