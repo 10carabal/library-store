@@ -1,59 +1,90 @@
-# LibraryStore
+# 📚 Library Management Demo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
+A **full-stack web application** showcasing seamless integration between **Angular** (frontend) and **Spring Boot** (backend).
+It manages **Books**, **Genres**, and **Publishers**, highlighting clean architecture and best practices for modern web development.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
+- 🔹 **Book Management:** Create, update, and browse books with details.
+- 🔹 **Genre Management:** Organize books by category or genre.
+- 🔹 **Publisher Management:** Maintain publisher records efficiently.
+- 🔹 **Full REST Integration:** Angular frontend communicates with Spring Boot APIs.
+- 🔹 **Responsive UI:** Built with modern Angular components.
+
+---
+
+## 🧩 Tech Stack
+
+**Frontend:**
+- Angular
+- TypeScript
+- RxJS
+- HTML5 / SCSS
+
+**Backend:**
+- Spring Boot
+- Java
+- RESTful API
+- Maven / Gradle
+
+**Database:**
+- PostgreSQL (configurable)
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Backend (Spring Boot)
 ```bash
-ng serve
-```
+cd backend
+mvn spring-boot:run
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+By default, the API runs on:
+➡️ http://localhost:8080
 
-## Code scaffolding
+2️⃣ Frontend (Angular)
+cd frontend
+npm install
+npm start
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+Frontend runs on:
+➡️ http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+🔗 API Integration Example
+Entity	Endpoint	Method	Description
+Books	/api/books	GET	Retrieve all books
+Genres	/api/genres	POST	Create a new genre
+Publishers	/api/publishers/{id}	DELETE	Delete a publisher
+🧠 Architecture Overview
+frontend/
+ └── src/
+      ├── app/
+      │    ├── components/
+      │    ├── services/
+      │    ├── models/
+      │    └── pages/
+backend/
+ └── src/main/java/com/example/library/
+      ├── controller/
+      ├── service/
+      ├── repository/
+      └── model/
 
-```bash
-ng generate --help
-```
+💡 Highlights
 
-## Building
+✅ Clean separation of concerns between frontend and backend
 
-To build the project run:
+✅ Demonstrates RESTful communication using Angular HttpClient
 
-```bash
-ng build
-```
+✅ Designed for scalability and easy maintenance
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ Ideal as a learning project or boilerplate for new apps
 
-## Running unit tests
+🧑‍💻 Author
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Daniel Carabalo
+Full Stack Developer | Angular + Spring Boot
+🔗 GitHub Profile
